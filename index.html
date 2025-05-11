@@ -1,238 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faizul Hai - My Projects</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
-    <!-- You can add your AdSense script here if you want ads on this landing page too -->
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1962231872605075"
-         crossorigin="anonymous"></script> 
-    
-    <style>
-        :root {
-            --primary-color: #6a11cb; /* Deep Purple */
-            --secondary-color: #2575fc; /* Bright Blue */
-            --accent-color: #f7971e; /* Orange for accent */
-            --text-color: #333;
-            --light-text-color: #fff;
-            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Light Gray/Blue Gradient */
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --font-heading: 'Pacifico', cursive;
-            --font-body: 'Poppins', sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faizul Hai – Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+      scroll-behavior: smooth;
+    }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    header {
+      padding: 2rem;
+      text-align: center;
+      background-color: rgba(30, 41, 59, 0.95);
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      margin-top: 0.5rem;
+    }
 
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-gradient);
-            color: var(--text-color);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+    nav {
+      margin-top: 1.5rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #38bdf8;
+      left: 0;
+      bottom: -4px;
+      transition: 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            margin-top: 30px;
-        }
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      animation: fadeInUp 1s ease-out;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin: auto;
+    }
 
-        .header h1 {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
+    .section {
+      padding: 3.5rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
 
-        .header p {
-            font-size: 1.1rem;
-            color: #555;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            width: 100%;
-            max-width: 900px; /* Adjust as needed */
-            margin-bottom: 40px;
-        }
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #60a5fa;
+    }
 
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 8px 25px var(--shadow-color);
-            padding: 25px;
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
+    .section p, .section a {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
 
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-        }
+    .section a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #38bdf8;
+      text-decoration: none;
+    }
 
-        .project-card h2 {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
+    .section a:hover {
+      text-decoration: underline;
+    }
 
-        .project-card p {
-            font-size: 0.95rem;
-            color: #666;
-            flex-grow: 1; /* Makes description take available space */
-            margin-bottom: 20px;
-        }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: rgba(15, 23, 42, 0.9);
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
 
-        .project-link {
-            display: inline-block;
-            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
-            color: var(--light-text-color);
-            padding: 10px 20px;
-            border-radius: 25px; /* Pill shape */
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s ease, transform 0.2s ease;
-            text-align: center;
-            align-self: flex-start; /* Aligns button to the start if text is short */
-        }
+    .socials {
+      margin-top: 1rem;
+    }
+    .socials a {
+      color: #94a3b8;
+      margin: 0 10px;
+      font-size: 1.3rem;
+      transition: color 0.3s;
+    }
+    .socials a:hover {
+      color: #38bdf8;
+    }
 
-        .project-link:hover {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            transform: scale(1.05);
-        }
-        
-        .icon { /* Simple emoji icon example */
-            font-size: 1.8rem;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        .footer {
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.9rem;
-            color: #777;
-            width: 100%;
-            margin-top: auto; /* Pushes footer to bottom */
-        }
-
-        .footer a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Ad placeholder styling (optional) */
-        .ad-placeholder-landing {
-            width: 100%;
-            max-width: 728px; /* Example for a leaderboard ad */
-            min-height: 90px; /* Example */
-            /* background-color: #f0f0f0; */
-            /* border: 1px dashed #ccc; */
-            margin: 30px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9em;
-            color: #999;
-        }
-
-        @media (max-width: 600px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-            .header p {
-                font-size: 1rem;
-            }
-            .projects-container {
-                grid-template-columns: 1fr; /* Single column on small screens */
-            }
-        }
-    </style>
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.4rem;
+      }
+      .hero h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header class="header">
-        <h1>Faizul Hai</h1>
-        <p>Welcome to my little corner of the web! Here are some fun projects I've been working on.</p>
-    </header>
+  <header>
+    <h1>Faizul Hai</h1>
+    <p>Tech Explorer • Creator • Learner</p>
+    <nav>
+      <a href="/strangernotes/">StrangerNotes</a>
+      <a href="/flames/">FLAMES</a>
+      <a href="/intertext/">InterText</a>
+    </nav>
+  </header>
 
-    <main class="projects-container">
-        <div class="project-card">
-            <h2><span class="icon">💖</span>FLAMES Game</h2>
-            <p>Find out your relationship compatibility with someone special using the classic FLAMES algorithm. Features a visual step-by-step calculation!</p>
-            <a href="https://haifaizul.github.io/FLAMES/" class="project-link">Play FLAMES</a> 
-            <!-- Make sure this path is correct. 
-                 If flames.html is in the root, use "flames.html".
-                 If it's in a folder named "FLAMES", use "FLAMES/flames.html". 
-                 If your repo name is part of the path for sub-projects, adjust accordingly.
-                 e.g. if root is haifaizul.github.io, then FLAMES/flames.html is correct
-                 if your flames game is in a folder named FLAMES in that repo.
-            -->
-        </div>
+  <section class="hero">
+    <h2>Welcome to My Digital Hub</h2>
+    <p>Discover my ideas, side-projects, and notes. I love turning thoughts into tools and sharing what I learn along the way.</p>
+  </section>
 
-        
-    
-        <div class="project-card">
-            <h2><span class="icon">✨</span>Another Cool Project</h2> <!-- Placeholder -->
-            <p>Description of your second project. What does it do? What makes it interesting?</p>
-            <a href="#" class="project-link">View Project 2 (Coming Soon)</a>
-        </div>
-        
-        <div class="project-card">
-            <h2><span class="icon">🚀</span>Future Idea</h2> <!-- Placeholder -->
-            <p>A brief idea about a future project you might want to showcase.</p>
-            <a href="#" class="project-link">Learn More (Placeholder)</a>
-        </div>
-        <!-- Add more project cards here -->
+  <section class="section">
+    <h2>📝 StrangerNotes</h2>
+    <p>A collection of insightful notes, thoughts, and experiments with technology and life.  
+    <br><a href="/strangernotes/">→ Visit StrangerNotes</a></p>
+  </section>
 
-    
-    </main>
+  <section class="section">
+    <h2>🔥 FLAMES</h2>
+    <p>A fun and nostalgic game remade with a modern touch. Try it with your friends.  
+    <br><a href="/flames/">→ Try FLAMES</a></p>
+  </section>
 
+  <section class="section">
+    <h2>🔤 InterText</h2>
+    <p>A text-based tool that transforms how you interact with written language.  
+    <br><a href="/intertext/">→ Explore InterText</a></p>
+  </section>
 
-
-    <!-- Optional: Ad Placeholder for this landing page -->
-    <!-- 
-    <div class="ad-placeholder-landing" id="landing-page-ad-slot">
-        (Ad Placeholder for Landing Page)
+  <footer>
+    <div class="socials">
+      <a href="https://instagram.com/hai_faizul" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/haifaizul" target="_blank"><i class="fab fa-github"></i></a>
     </div>
-    -->
+    <p>© 2025 Faizul Hai • Made with 💙 HTML, CSS, and curiosity</p>
+  </footer>
 
-    <footer class="footer">
-        <p>© <span id="currentYear"></span> Faizul Hai. Find me on 
-            <a href="https://www.instagram.com/hai_faizul/" target="_blank" rel="noopener noreferrer">Instagram</a> |
-            <a href="https://github.com/haifaizul" target="_blank" rel="noopener noreferrer">GitHub</a>.
-        </p>
-    </footer>
-
-    <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const showSection = () => {
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          sec.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', showSection);
+    window.addEventListener('load', showSection);
+  </script>
 
 </body>
 </html>
